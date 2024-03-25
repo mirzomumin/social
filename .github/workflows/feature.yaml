@@ -1,0 +1,34 @@
+name: Lint
+
+on:
+  # Trigger the workflow on pull request,
+  # but only for the dev branch
+  pull_request:
+    branches:
+      - dev
+
+jobs:
+  check-code:
+    name: Check python code style
+    runs-on: ubuntu-latest
+
+    steps:
+      - name: Check out Git repository
+        uses: actions/checkout@v4
+
+      - name: Set up python3.11
+        uses: actions/setup-python@v5
+        with:
+          python-version: '3.11'
+
+      - name: Install dependancy manager
+        run: |
+          curl -sSL https://install.python-poetry.org | python3 -
+          export PATH="/home/runner/.local/bin"
+          poetry config virtualenvs.create false && \
+          poetry add black isort
+
+      - name: Run Linters
+        run: |
+          isort --check-only --profile black .
+          black --check --config ./pyproject.toml .
