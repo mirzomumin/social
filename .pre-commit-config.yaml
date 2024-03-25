@@ -26,7 +26,7 @@ repos:
         name: Isort
         entry: isort
         description: Sort imports alphabetically and automatically separate into sections and by type.
-        args: [".", "--profile", "black"]
+        args: ["--profile", "black", "."]
 
   - repo: https://github.com/psf/black-pre-commit-mirror
     rev: 23.11.0
@@ -35,4 +35,4 @@ repos:
         name: Black
         entry: black
         description: PEP 8 compliant opinionated formatter
-        args: [".", "--config", "./pyproject.toml"]
+        args: ["--config", "./pyproject.toml", "."]
