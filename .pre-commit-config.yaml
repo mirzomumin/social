@@ -1,0 +1,38 @@
+default_language_version:
+    python: python3.11
+exclude: 'tests.py|tests/.*'
+
+repos:
+  - repo: https://github.com/pre-commit/pre-commit-hooks
+    rev: v4.5.0
+    hooks:
+      - id: trailing-whitespace
+        name: Trim Trailing Whitespace
+        description: This hook trims trailing whitespace.
+        entry: trailing-whitespace-fixer
+
+      - id: end-of-file-fixer
+        name: End Of File Fixer
+        description: Makes sure files end in a newline and only a newline.
+
+      - id: check-yaml
+        name: YAML Checker
+        description: Attempts to load all yaml files to verify syntax
+
+  - repo: https://github.com/PyCQA/isort
+    rev: 5.12.0
+    hooks:
+      - id: isort
+        name: Isort
+        entry: isort
+        description: Sort imports alphabetically and automatically separate into sections and by type.
+        args: ["--profile", "black", "."]
+
+  - repo: https://github.com/psf/black-pre-commit-mirror
+    rev: 23.11.0
+    hooks:
+      - id: black
+        name: Black
+        entry: black
+        description: PEP 8 compliant opinionated formatter
+        args: ["--config", "./pyproject.toml", "."]

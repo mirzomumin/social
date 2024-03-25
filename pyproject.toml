@@ -1,0 +1,17 @@
+[tool.poetry]
+name = "social"
+version = "0.1.0"
+description = ""
+authors = ["Mirzomumin <mirzomumin@list.ru>"]
+readme = "README.md"
+
+[tool.poetry.dependencies]
+python = "^3.11"
+django = "^5.0.3"
+pre-commit = "^3.7.0"
+python-dotenv = "^1.0.1"
+
+
+[build-system]
+requires = ["poetry-core"]
+build-backend = "poetry.core.masonry.api"
