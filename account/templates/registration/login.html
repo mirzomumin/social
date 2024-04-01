@@ -10,11 +10,16 @@
         <p>Please, use the following form to sign in</p>
     {% endif %}
     <div class="signin-form">
-        <form method="post" action="{% url 'sign_in' %}">
+        <form method="post" action="{% url 'login' %}">
             {{ form.as_p }}
             {% csrf_token %}
             <input type="hidden" name="next" value="{{ next }}">
             <p><input type="submit" value="Sign In"></p>
         </form>
+        <p>
+            <a href="{% url 'password_reset' %}">
+                Forgotten your password?
+            </a>
+        </p>
     </div>
 {% endblock %}
