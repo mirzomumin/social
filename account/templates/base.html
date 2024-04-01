@@ -27,12 +27,12 @@
         <span class="user">
             {% if request.user.is_authenticated %}
                 Hello {{ request.user.first_name|default:request.user.username }},
-                <form class="sign-out-form" action="{% url 'sign_out' %}" method="post">
+                <form class="sign-out-form" action="{% url 'logout' %}" method="post">
                     {% csrf_token %}
                     <button type="submit">Sign Out</button>
                 </form>
             {% else %}
-                <a href="{% url 'sign_in' %}">Sign In</a>
+                <a href="{% url 'login' %}">Sign In</a>
             {% endif %}
         </span>
     </div>
