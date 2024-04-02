@@ -7,7 +7,12 @@
     {% if form.errors %}
         <p></p>
     {% else %}
-        <p>Please, use the following form to sign in</p>
+        <p>
+            Please, use the following form to sign in.
+            If you don't have an account <a href="{% url 'register' %}">
+                register here
+            </a>
+        </p>
     {% endif %}
     <div class="signin-form">
         <form method="post" action="{% url 'login' %}">
