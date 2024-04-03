@@ -44,7 +44,7 @@ def register(request):
     user_form = UserRegistrationForm(request.POST)
     if not user_form.is_valid():
         context = {"user_form": user_form}
-        return render(request, "account/register.html", context)
+        return render(request, "account/register.html", context, status=400)
 
     # create a new user object but avoid saving it yet
     new_user = user_form.save(commit=False)
