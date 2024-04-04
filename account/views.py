@@ -1,3 +1,4 @@
+from django.contrib import messages
 from django.contrib.auth import authenticate, login
 from django.contrib.auth.decorators import login_required
 from django.http import HttpResponse
@@ -79,5 +80,8 @@ def edit(request):
     if user_form.is_valid() and profile_form.is_valid():
         user_form.save()
         profile_form.save()
+        messages.success(request, "Profile updated " "successfully")
+    else:
+        messages.error(request, "Error updating your profile.")
     context = {"user_form": user_form, "profile_form": profile_form}
     return render(request, "account/edit.html", context)
