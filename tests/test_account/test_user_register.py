@@ -72,4 +72,4 @@ def test_user_register_fail_unique_error(client):
     error_list = list(response.context["user_form"].errors.values())
 
     assert response.status_code == 400
-    assert error_list[0][0] == "A user with that username already exists."
+    assert error_list[0][0] == "Email already in use."
