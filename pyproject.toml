@@ -12,6 +12,10 @@ pre-commit = "^3.7.0"
 python-dotenv = "^1.0.1"
 pillow = "^10.3.0"
 pytest-django = "^4.8.0"
+social-auth-app-django = "^5.4.0"
+django-extensions = "^3.2.3"
+werkzeug = "^3.0.2"
+pyopenssl = "^24.1.0"
 
 
 [build-system]

@@ -29,7 +29,7 @@ SECRET_KEY = os.environ["SECRET_KEY"]
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = bool(os.environ["DEBUG"])
 
-ALLOWED_HOSTS = []
+ALLOWED_HOSTS = ["social.com", "localhost", "127.0.0.1"]
 
 
 # Application definition
@@ -37,12 +37,16 @@ ALLOWED_HOSTS = []
 INSTALLED_APPS = [
     # My apps
     "account.apps.AccountConfig",
+    # Django apps
     "django.contrib.admin",
     "django.contrib.auth",
     "django.contrib.contenttypes",
     "django.contrib.sessions",
     "django.contrib.messages",
     "django.contrib.staticfiles",
+    # Third part apps
+    "social_django",
+    "django_extensions",
 ]
 
 MIDDLEWARE = [
